@@ -126,6 +126,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" ctags
+nnoremap <C-]> g<C-]>
+
+
 " ====================
 " 自定义快捷键
 " ====================
@@ -238,6 +242,8 @@ inoremap <F4> <Esc>:call AddHeader()<CR>
 autocmd FileType c,cpp setlocal formatprg=clang-format
 autocmd FileType c,cpp nnoremap <buffer><leader>f :%!clang-format<CR>
 autocmd FileType c,cpp vnoremap <buffer><leader>f :!clang-format<CR>
+
+autocmd BufWritePost *.c,*.h,*.cpp silent! !ctags -R .
 
 augroup vimrc
     autocmd!
