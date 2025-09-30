@@ -143,6 +143,15 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+" cursor
+" 设置光标颜色和形状
+let &t_SI = "\e[2 q\e]12;red\x7"     " 插入模式：竖线，红色
+let &t_SR = "\e[4 q\e]12;blue\x7"     " 替换模式：下划线，红色  
+let &t_EI = "\e[2 q\e]12;green\x7"   " 普通模式：块状，绿色
+" 确保vim退出时恢复默认光标
+autocmd VimLeave * silent !echo -ne "\e[2 q\e]12;white\x7"
+
+
 " 终端操作快捷键
 " 在底部全宽打开终端（最可靠的方案）
 nnoremap <leader>bt :botright terminal ++rows=12<CR>
